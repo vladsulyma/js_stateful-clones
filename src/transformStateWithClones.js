@@ -18,8 +18,6 @@ function transformStateWithClones(state, actions) {
         break;
 
       case 'removeProperties':
-        currentState = { ...currentState };
-
         for (const key of keysToRemove) {
           delete currentState[key];
         }
@@ -30,7 +28,7 @@ function transformStateWithClones(state, actions) {
         break;
     }
 
-    result.push(currentState);
+    result.push({ ...currentState });
   }
 
   return result;
